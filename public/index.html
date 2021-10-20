@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Calculator app</title>
+  <link rel="stylesheet" href="output.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="bg-skin-main font-body">
+  <main class="calculator mx-auto w-full max-w-xl my-20 p-4 py-6">
+      <div class="top flex justify-between items-center">
+        <h1 class="text-skin-txt2 text-3xl">calc</h1>
+
+        <div class="theme relative">
+          <p class="absolute right-24 bottom-1 uppercase text-skin-txt2 text-xs tracking-widest">theme</p>
+          
+          <div class="absolute bottom-6 w-20 flex justify-around items-center">
+            <label for="theme-1" class="text-skin-txt2 text-xs cursor-pointer">1</label>
+            <label for="theme-2" class="text-skin-txt2 text-xs cursor-pointer">2</label>
+            <label for="theme-3" class="text-skin-txt2 text-xs cursor-pointer">3</label>
+          </div>
+
+          <div class="relative bg-skin-second w-20 h-6 rounded-full flex justify-around items-center">
+            <span class="slider absolute w-4 h-4 bg-skin-kp2 rounded-full left-1"></span>
+            
+            <input type="radio" name="theme" id="theme-1" class="input-radio cursor-pointer opacity-0">
+            <input type="radio" name="theme" id="theme-2" class="input-radio cursor-pointer opacity-0">
+            <input type="radio" name="theme" id="theme-3" class="input-radio cursor-pointer opacity-0">
+          </div>
+        </div>
+      </div>
+
+      <div class="screen w-full bg-skin-screen h-32 mt-8 rounded-xl">
+
+      </div>
+
+      <div class="pads w-full bg-skin-second mt-6 rounded-xl p-8 grid grid-cols-4 gap-6">
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">7</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">8</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">9</button>
+        <button class="btn-change bg-skin-kp1 shadow-kp1s text-white rounded-lg p-4 text-2xl font-bold">DEL</button>
+        
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">4</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">5</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">6</button>
+        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">+</button>
+        
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">1</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">2</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">3</button>
+        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">-</button>
+        
+        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">.</button>
+        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">0</button>
+        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">/</button>
+        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">x</button>
+        
+        <button class="btn-change text-white bg-skin-kp1 shadow-kp1s rounded-lg p-5 col-start-1 col-end-3 text-2xl font-bold">RESET</button>
+        <button class="btn-result text-white bg-skin-kp2 shadow-kp2s rounded-lg p-5 col-start-3 col-end-5 text-2xl font-bold">=</button>
+      </div>
+    </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <script src="JS/themeSelector.js"></script>
+</body>
+</html>
