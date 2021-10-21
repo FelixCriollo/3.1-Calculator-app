@@ -653,6 +653,12 @@ video {
   --txt-2: hsl(52, 100%, 62%);
 }
 
+input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .container{
   width: 100%;
 }

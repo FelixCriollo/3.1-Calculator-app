@@ -6,7 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Calculator app</title>
+  <title>Calculator app</title>
   <link rel="stylesheet" href="output.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -16,6 +16,7 @@
 </head>
 <body class="bg-skin-main font-body">
   <main class="calculator mx-auto w-full max-w-xl my-20 p-4 py-6">
+    <!-- Top of calculator -->
       <div class="top flex justify-between items-center">
         <h1 class="text-skin-txt2 text-3xl">calc</h1>
 
@@ -37,34 +38,34 @@
           </div>
         </div>
       </div>
-
-      <div class="screen w-full bg-skin-screen h-32 mt-8 rounded-xl">
-
+    <!-- Screen of calculator -->
+      <div class="screen w-full bg-skin-screen mt-8 rounded-xl p-9 py-8 box-border">
+        <input id="screen-view" class="border-none outline-none text-skin-txt2 text-5xl w-full bg-transparent text-right overflow-clip overflow-hidden p-1">
       </div>
-
+    <!-- Pads of calculator -->
       <div class="pads w-full bg-skin-second mt-6 rounded-xl p-8 grid grid-cols-4 gap-6">
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">7</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">8</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">9</button>
-        <button class="btn-change bg-skin-kp1 shadow-kp1s text-white rounded-lg p-4 text-2xl font-bold">DEL</button>
+        <button value='7' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">7</button>
+        <button value='8' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">8</button>
+        <button value='9' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">9</button>
+        <button value='del' class="btn-delete bg-skin-kp1 shadow-kp1s text-white rounded-lg py-4 text-2xl font-bold">DEL</button>
         
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">4</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">5</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">6</button>
-        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">+</button>
+        <button value='4' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">4</button>
+        <button value='5' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">5</button>
+        <button value='6' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">6</button>
+        <button value='+' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">+</button>
         
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">1</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">2</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">3</button>
-        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">-</button>
+        <button value='1' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">1</button>
+        <button value='2' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">2</button>
+        <button value='3' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">3</button>
+        <button value='-' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">-</button>
         
-        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">.</button>
-        <button class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">0</button>
-        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">/</button>
-        <button class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg p-4 text-2xl font-bold">x</button>
+        <button value=',' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">.</button>
+        <button value='0' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">0</button>
+        <button value='/' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">/</button>
+        <button value='*' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">x</button>
         
-        <button class="btn-change text-white bg-skin-kp1 shadow-kp1s rounded-lg p-5 col-start-1 col-end-3 text-2xl font-bold">RESET</button>
-        <button class="btn-result text-white bg-skin-kp2 shadow-kp2s rounded-lg p-5 col-start-3 col-end-5 text-2xl font-bold">=</button>
+        <button value='reset' class="btn-reset text-white bg-skin-kp1 shadow-kp1s rounded-lg py-5 col-start-1 col-end-3 text-2xl font-bold">RESET</button>
+        <button value='=' class="btn-result text-white bg-skin-kp2 shadow-kp2s rounded-lg py-5 col-start-3 col-end-5 text-2xl font-bold">=</button>
       </div>
     </div>
   </main>
@@ -75,5 +76,6 @@
   </div>
 
   <script src="JS/themeSelector.js"></script>
+  <script src="JS/calculator.js"></script>
 </body>
 </html>
