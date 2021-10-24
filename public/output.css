@@ -619,6 +619,23 @@ video {
   --txt-2: #fff;
 }
 
+.theme-1 {
+  /* backgrounds */
+  --background-main: hsl(222, 26%, 31%);
+  --background-second: hsl(223, 31%, 20%);
+  --background-screen: hsl(224, 36%, 15%);
+  /* keys */
+  --keybg-pri: hsl(225, 21%, 49%);
+  --keybg-pris: hsl(224, 28%, 35%);
+  --keybg-sec: hsl(6, 63%, 50%);
+  --keybg-secs: hsl(6, 70%, 34%);
+  --keybg-tri: hsl(30, 25%, 89%);
+  --keybg-tris: hsl(28, 16%, 65%);
+  /* text */
+  --txt-1: hsl(221, 14%, 31%);
+  --txt-2: #fff;
+}
+
 .theme-2 {
   /* backgrounds */
   --background-main: hsl(0, 0%, 90%);
@@ -653,10 +670,60 @@ video {
   --txt-2: hsl(52, 100%, 62%);
 }
 
+.slider {
+  left: .25rem;
+}
+
 input[type=number]::-webkit-inner-spin-button,
   input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    /* backgrounds */
+    --background-main: hsl(268, 75%, 9%);
+    --background-second: hsl(268, 71%, 12%);
+    --background-screen: hsl(268, 71%, 12%);
+    /* keys */
+    --keybg-pri: hsl(281, 89%, 26%);
+    --keybg-pris: hsl(285, 91%, 52%);
+    --keybg-sec: hsl(176, 100%, 44%);
+    --keybg-secs: hsl(177, 92%, 70%);
+    --keybg-tri: hsl(268, 47%, 21%);
+    --keybg-tris: hsl(290, 70%, 36%);
+    /* text */
+    --txt-1: hsl(52, 100%, 62%);
+    --txt-2: hsl(52, 100%, 62%);
+  }
+
+  .slider {
+    left: 3.75rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    /* backgrounds */
+    --background-main: hsl(0, 0%, 90%);
+    --background-second: hsl(0, 5%, 81%);
+    --background-screen: hsl(0, 0%, 93%);
+    /* keys */
+    --keybg-pri: hsl(185, 42%, 37%);
+    --keybg-pris: hsl(185, 58%, 25%);
+    --keybg-sec: hsl(25, 98%, 40%);
+    --keybg-secs: hsl(25, 99%, 27%);
+    --keybg-tri: hsl(45, 7%, 89%);
+    --keybg-tris: hsl(35, 11%, 61%);
+    /* text */
+    --txt-1: hsl(60, 10%, 19%);
+    --txt-2: hsl(0, 0, 100%);
+  }
+
+  .slider {
+    left: 2rem;
+  }
 }
 
 .container{
@@ -691,6 +758,19 @@ input[type=number]::-webkit-inner-spin-button,
   .container{
     max-width: 1536px;
   }
+}
+
+.btn-num, .btn-op, .btn-float{
+  border-radius: 0.5rem;
+  background-color: var(--keybg-tri);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: var(--txt-1);
+  --tw-shadow: 0 5px 4px var(--keybg-tris);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .sr-only{

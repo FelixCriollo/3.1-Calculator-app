@@ -1,82 +1,69 @@
-const screen = document.querySelector('#screen-view');
-const btnsNum = document.querySelectorAll('.btn-num');
-const btnDelete = document.querySelector('.btn-delete');
-const btnReset = document.querySelector('.btn-reset');
-const btnsOperators = document.querySelectorAll('.btn-op');
-const btnResult = document.querySelector('.btn-result')
-let firstTerm;
-let operator = '';
-let secondTerm;
-let controlSeconTerm = true;
-// FUNCTIONS
-const ResetOps = () => {
-  firstTerm = 0
-  secondTerm = 0
-  operator = ''
-  screen.value = ''
-}
-const sum = () => {
-  screen.value = ''
-  screen.value = firstTerm + secondTerm
-  return firstTerm + secondTerm
-}
-const subtraction = () => {
-  screen.value = ''
-  screen.value = firstTerm - secondTerm;
-  return firstTerm - secondTerm
-}
-const multiply = () => {
-  screen.value = ''
-  screen.value = firstTerm * secondTerm;
-  return firstTerm * secondTerm
-}
-const division = () => {
-  let res = firstTerm / secondTerm
-  screen.value = ''
-  screen.value = res.toFixed(4);
-  return firstTerm / secondTerm
-}
-const switchOps = () => {
-  switch (operator) {
-    case '+':
-      firstTerm = sum();
-      break;
-    case '-':
-      firstTerm = subtraction();
-      break;
-    case '*':
-      firstTerm = multiply();
-      break;
-    case '/':
-      firstTerm = division();
-      break;
-    default:
-      break;
-  }
-}
+// screen of calculator
+const screen = document.getElementById("screen-view");
+// secondary display
+const screenSd = document.getElementById("screen-full");
+// pad with numbes {0 to 9}
+const numPads = document.querySelectorAll(".btn-num");
+// pad with operators {+, -, *, /}
+const opertPads = document.querySelectorAll(".btn-op");
+// pad with result sign
+const resultPad = document.querySelector(".btn-result");
+// pad to delete
+const delPad = document.querySelector(".btn-delete");
+// pad to reselt
+const resetPad = document.querySelector(".btn-reset");
 
+let arrAllArg = [];
+let firstOp = "";
+let SecndOp;
+let operatr;
+let validScndOp = false;
+// ====================================================================
+const operations = (num1, num2, op) => {
+  let divisionOp = num1 / num2;
+  if (op === "+") return num1 + num2;
+  if (op === "-") return num1 - num2;
+  if (op === "*") return num1 * num2;
+  if (op === "/") return divisionOp.toFixed(6);
+  operatr = "";
+};
 
-// EVENT LISTENER
-btnsNum.forEach(b => b.addEventListener('click', () => {
-  if (controlSeconTerm === true) {
-    screen.value += b.value
-  } else {
-    operator += screen.value
-    screen.value = '';
-    screen.value += b.value
-  }
-}))
-btnsOperators.forEach(b => b.addEventListener('click', () => {
-  firstTerm = Number(screen.value)
-  screen.value = '';
-  screen.value += b.value
-  controlSeconTerm = false;
-}))
-btnResult.addEventListener('click', () => {
-  secondTerm = Number(screen.value)
-  screen.value = '';
-  switchOps();
-  operator = ''
-  secondTerm = ''
-})
-btnReset.addEventListener('click', ResetOps)
+const printtOps = () => {
+  console.log(`First term  : ${firstOp}`);
+  console.log(`Second term : ${SecndOp}`);
+  console.log(`Operator    : ${operatr}`);
+};
+
+// function capFirstOp(n) {
+//   firstOp += n.value;
+//   screen.innerText = firstOp
+// }
+
+// ====================================================================
+numPads.forEach((n) =>
+  n.addEventListener("click", () => {
+    !validScndOp
+      ? ((firstOp += n.value), (screen.innerText = firstOp))
+      : ((SecndOp += n.value), (screen.innerText = SecndOp));
+  })
+);
+opertPads.forEach((o) =>
+  o.addEventListener("click", () => {
+    operatr = o.value;
+    screen.innerText = operatr;
+    validScndOp = true;
+  })
+);
+resultPad.addEventListener("click", () => {
+  screen.innerText = operations(Number(firstOp), Number(SecndOp), operatr);
+  firstOp = operations(Number(firstOp), Number(SecndOp), operatr);
+  printtOps();
+  validScndOp = false;
+});
+resetPad.addEventListener("click", () => {
+  firstOp = '';
+  SecndOp = '';
+  operatr = "";
+  screen.innerText = "";
+  printtOps();
+});

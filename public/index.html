@@ -15,7 +15,7 @@
   </style>
 </head>
 <body class="bg-skin-main font-body">
-  <main class="calculator mx-auto w-full max-w-xl my-20 p-4 py-6">
+  <main class="calculator mx-auto w-full max-w-xl my-2 p-6 py-8 sm:my-20 sm:p-4 sm:py-6">
     <!-- Top of calculator -->
       <div class="top flex justify-between items-center">
         <h1 class="text-skin-txt2 text-3xl">calc</h1>
@@ -30,7 +30,7 @@
           </div>
 
           <div class="relative bg-skin-second w-20 h-6 rounded-full flex justify-around items-center">
-            <span class="slider absolute w-4 h-4 bg-skin-kp2 rounded-full left-1"></span>
+            <span class="slider absolute w-4 h-4 bg-skin-kp2 rounded-full"></span>
             
             <input type="radio" name="theme" id="theme-1" class="input-radio cursor-pointer opacity-0">
             <input type="radio" name="theme" id="theme-2" class="input-radio cursor-pointer opacity-0">
@@ -39,32 +39,33 @@
         </div>
       </div>
     <!-- Screen of calculator -->
-      <div class="screen w-full bg-skin-screen mt-8 rounded-xl p-9 py-8 box-border">
-        <input id="screen-view" class="border-none outline-none text-skin-txt2 text-5xl w-full bg-transparent text-right overflow-clip overflow-hidden p-1">
+      <div class="screen relative w-full bg-skin-screen mt-8 rounded-xl px-4 py-10 sm:px-9 sm:py-16">
+        <span id="screen-full" class="absolute top-4 left-8 text-skin-txt2 text-lg bg-transparent p-1"></span>
+        <span id="screen-view" class="absolute text-skin-txt2 bg-transparent text-right w-3/4 p-1 overflow-hidden  right-6 top-5 text-3xl sm:right-8 sm:top-14 sm:text-5xl"></span>
       </div>
     <!-- Pads of calculator -->
-      <div class="pads w-full bg-skin-second mt-6 rounded-xl p-8 grid grid-cols-4 gap-6">
-        <button value='7' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">7</button>
-        <button value='8' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">8</button>
-        <button value='9' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">9</button>
-        <button value='del' class="btn-delete bg-skin-kp1 shadow-kp1s text-white rounded-lg py-4 text-2xl font-bold">DEL</button>
+      <div class="pads w-full bg-skin-second grid grid-cols-4 gap-4 sm:gap-6 mt-6 rounded-xl p-6 sm:p-8 ">
+        <button value='7' class="btn-num">7</button>
+        <button value='8' class="btn-num">8</button>
+        <button value='9' class="btn-num">9</button>
+        <button value='del' class="btn-delete bg-skin-kp1 shadow-kp1s text-white rounded-lg py-4 sm:text-2xl text-lg font-bold">DEL</button>
         
-        <button value='4' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">4</button>
-        <button value='5' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">5</button>
-        <button value='6' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">6</button>
-        <button value='+' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">+</button>
+        <button value='4' class="btn-num">4</button>
+        <button value='5' class="btn-num">5</button>
+        <button value='6' class="btn-num">6</button>
+        <button value='+' class="btn-op">+</button>
         
-        <button value='1' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">1</button>
-        <button value='2' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">2</button>
-        <button value='3' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">3</button>
-        <button value='-' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">-</button>
+        <button value='1' class="btn-num">1</button>
+        <button value='2' class="btn-num">2</button>
+        <button value='3' class="btn-num">3</button>
+        <button value='-' class="btn-op">-</button>
         
-        <button value=',' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">.</button>
-        <button value='0' class="btn-num bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">0</button>
-        <button value='/' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">/</button>
-        <button value='*' class="btn-op bg-skin-kp3 shadow-kp3s text-skin-txt1 rounded-lg py-4 text-2xl font-bold">x</button>
+        <button value=',' class="btn-float">.</button>
+        <button value='0' class="btn-num">0</button>
+        <button value='/' class="btn-op">/</button>
+        <button value='*' class="btn-op">x</button>
         
-        <button value='reset' class="btn-reset text-white bg-skin-kp1 shadow-kp1s rounded-lg py-5 col-start-1 col-end-3 text-2xl font-bold">RESET</button>
+        <button value='reset' class="btn-reset text-white bg-skin-kp1 shadow-kp1s rounded-lg py-5 col-start-1 col-end-3 sm:text-2xl text-lg font-bold">RESET</button>
         <button value='=' class="btn-result text-white bg-skin-kp2 shadow-kp2s rounded-lg py-5 col-start-3 col-end-5 text-2xl font-bold">=</button>
       </div>
     </div>
@@ -72,7 +73,7 @@
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">iXIref</a>.
   </div>
 
   <script src="JS/themeSelector.js"></script>
