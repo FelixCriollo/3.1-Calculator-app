@@ -1,69 +1,104 @@
 // screen of calculator
 const screen = document.getElementById("screen-view");
+
 // secondary display
 const screenSd = document.getElementById("screen-full");
+
 // pad with numbes {0 to 9}
 const numPads = document.querySelectorAll(".btn-num");
+
 // pad with operators {+, -, *, /}
 const opertPads = document.querySelectorAll(".btn-op");
+
+// pad with {,}
+const btnFloat = document.querySelector(".btn-float");
+
 // pad with result sign
 const resultPad = document.querySelector(".btn-result");
+
 // pad to delete
 const delPad = document.querySelector(".btn-delete");
+
 // pad to reselt
 const resetPad = document.querySelector(".btn-reset");
 
-let arrAllArg = [];
-let firstOp = "";
-let SecndOp;
-let operatr;
-let validScndOp = false;
+let onOp = false;
+let onFloat = false;
+
 // ====================================================================
-const operations = (num1, num2, op) => {
-  let divisionOp = num1 / num2;
-  if (op === "+") return num1 + num2;
-  if (op === "-") return num1 - num2;
-  if (op === "*") return num1 * num2;
-  if (op === "/") return divisionOp.toFixed(6);
-  operatr = "";
+const calcResult = (num1 = 0, num2 = 0, op = "+") => {
+  let result;
+  let division = num1 / num2;
+  let multiplication = num1 * num2;
+  if (op === "+") {
+    result = num1 + num2;
+  } 
+  if (op === "-") {
+    result = num1 - num2;
+  } 
+  if (op === "x") {
+    result = multiplication.toFixed(2);
+  } 
+  if (op === "/") {
+    result = division.toFixed(2);
+  } 
+  return result;
 };
-
-const printtOps = () => {
-  console.log(`First term  : ${firstOp}`);
-  console.log(`Second term : ${SecndOp}`);
-  console.log(`Operator    : ${operatr}`);
-};
-
-// function capFirstOp(n) {
-//   firstOp += n.value;
-//   screen.innerText = firstOp
-// }
 
 // ====================================================================
 numPads.forEach((n) =>
   n.addEventListener("click", () => {
-    !validScndOp
-      ? ((firstOp += n.value), (screen.innerText = firstOp))
-      : ((SecndOp += n.value), (screen.innerText = SecndOp));
+    screen.innerHTML += n.innerHTML;
+
+    btnFloat.addEventListener("click", () => {
+      if (!onFloat) {
+        screen.innerHTML += ".";
+        onFloat = true;
+      }
+    });
   })
 );
+
 opertPads.forEach((o) =>
   o.addEventListener("click", () => {
-    operatr = o.value;
-    screen.innerText = operatr;
-    validScndOp = true;
+    if (!onOp) {
+      screen.innerHTML += ` ${o.innerHTML} `;
+      onOp = true;
+      onFloat = false;
+    }
   })
 );
+
 resultPad.addEventListener("click", () => {
-  screen.innerText = operations(Number(firstOp), Number(SecndOp), operatr);
-  firstOp = operations(Number(firstOp), Number(SecndOp), operatr);
-  printtOps();
-  validScndOp = false;
+  let screenData = screen.innerHTML;
+  screenData = screenData.split(" ");
+  console.log(screenData);
+
+  let result = calcResult(
+    Number(screenData[0]),
+    Number(screenData[2]),
+    screenData[1]
+  );
+  console.log(result);
+  screenSd.innerHTML = "";
+  screenSd.innerHTML = screen.innerHTML;
+  screen.innerHTML = "";
+  screen.innerHTML = result;
+
+  onOp = false;
+  onFloat = false;
 });
+
 resetPad.addEventListener("click", () => {
-  firstOp = '';
-  SecndOp = '';
-  operatr = "";
-  screen.innerText = "";
-  printtOps();
+  screen.innerHTML = "";
+  onOp = false;
+});
+
+delPad.addEventListener("click", () => {
+  let screenDel = [...screen.innerHTML];
+  screenDel = screenDel.filter((e) => e !== " ");
+  screenDel.pop();
+  screen.innerHTML = screenDel.join(" ");
+  onOp = false;
+  onFloat = false;
 });
